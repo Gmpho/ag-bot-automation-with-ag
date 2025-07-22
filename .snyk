@@ -1,0 +1,89 @@
+# Snyk Configuration File
+version: v1.25.0
+
+# Ignore specific vulnerabilities
+ignore:
+  'SNYK-JS-MOMENT-2440688':
+    - '*':
+        reason: 'Moment.js deprecation, no direct security impact'
+        expires: 2025-12-31T00:00:00.000Z
+  'SNYK-PYTHON-REQUESTS-2941389':
+    - '*':
+        reason: 'False positive in test dependencies'
+        expires: 2025-12-31T00:00:00.000Z
+
+# CLI Configuration
+cli:
+  # Reports progress of tests
+  progress: true
+  # Automatically updates dependencies if fixes are available
+  autofix: false
+  # Severity threshold
+  severity-threshold: medium
+
+# Test Configuration
+test:
+  # Include development dependencies in tests
+  dev-deps: true
+  # Show vulnerable paths in reports
+  show-vulnerable-paths: true
+
+# Monitor Configuration
+monitor:
+  # Frequency of monitoring
+  frequency: daily
+  # Project tags
+  tags:
+    environment: development
+    team: trading-bot
+    owner: security-team
+
+# Python specific settings
+language-settings:
+  python:
+    # File patterns to scan
+    file-patterns:
+      - 'requirements.txt'
+      - 'Pipfile'
+      - 'setup.py'
+    # Additional package directories
+    additional-locations:
+      - 'packages/'
+      - 'apps/'
+
+# Node.js specific settings
+  node:
+    # Prune development dependencies
+    prune-dev-deps: false
+    # File patterns to scan
+    file-patterns:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'yarn.lock'
+
+# Container scanning
+container:
+  # Enable container scanning
+  enabled: true
+  # Maximum severity to fail build
+  severity-threshold: high
+  # Exclude base images
+  exclude-base-image-vulns: false
+
+# Infrastructure as Code scanning
+iac:
+  # Enable IaC scanning
+  enabled: true
+  # Include terraform files
+  include-terraform: true
+  # Include kubernetes files
+  include-kubernetes: true
+
+# Code scanning
+code:
+  # Enable code scanning
+  enabled: true
+  # Scan for security issues
+  security: true
+  # Scan for quality issues
+  quality: true

@@ -1,0 +1,73 @@
+# Gemini CLI Configuration
+version: 1.0.0
+
+# Model Configuration
+model:
+  path: ./models/trading-assistant
+  cache_dir: ./.cache/gemini
+  temperature: 0.7
+  max_tokens: 2048
+  retry_attempts: 3
+
+# Local Mode Settings
+local:
+  enabled: true
+  models_dir: ./models
+  cache_enabled: true
+  fallback_to_ollama: true
+
+# Trading Analysis Settings
+trading:
+  risk_analysis: true
+  market_analysis: true
+  technical_indicators: true
+  performance_tracking: true
+  max_positions: 5
+  risk_levels:
+    - low
+    - medium
+    - high
+
+# Code Review Settings
+code_review:
+  enabled: true
+  languages:
+    - python
+    - typescript
+    - javascript
+  severity_levels:
+    - error
+    - warning
+    - info
+  ignore_patterns:
+    - "*.test.ts"
+    - "*.spec.py"
+    - "**/node_modules/**"
+
+# Performance Settings
+performance:
+  response_timeout: 5000
+  cache_ttl: 3600
+  batch_size: 10
+  parallel_requests: 3
+
+# Integration Points
+integrations:
+  ollama:
+    enabled: true
+    url: http://localhost:11434
+    model: llama2
+  langchain:
+    enabled: true
+    cache_dir: ./.cache/langchain
+
+# Monitoring
+monitoring:
+  log_dir: ./logs
+  performance_tracking: true
+  error_logging: true
+  metrics:
+    - response_time
+    - success_rate
+    - token_usage
+    - cache_hits
