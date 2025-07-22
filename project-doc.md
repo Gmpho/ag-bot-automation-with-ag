@@ -37,30 +37,61 @@ An advanced Binance trading bot that leverages artificial intelligence for autom
 - **Payments**: Stripe integration for subscription management
 - **Deployment**: Automated CI/CD with GitHub Actions & Fly.io
 
-## 🔑 Key Features
+## ✨ Features Showcase
 
-- ✨ Advanced trading algorithms with AI assistance
-- 🌐 Cross-platform accessibility (Web, Telegram, Discord)
-- 🤖 AI-powered trading insights and risk management
-- 🔒 Secure authentication and role-based access
-- 💳 Tiered subscription system with Stripe
-- 📊 Real-time trading analytics and reporting
-- 🔄 Automated deployment and scaling
-- 📱 Mobile-first responsive dashboard
+### 📈 Smart Trading Dashboard
+![Trading Dashboard](./docs/assets/dashboard.png)
+- Real-time market data visualization
+- AI-powered trade suggestions
+- Portfolio performance tracking
+- Risk analysis metrics
+
+### 🤖 AI-Powered Analysis
+![AI Analysis](./docs/assets/ai-analysis.png)
+- Market sentiment analysis
+- Pattern recognition
+- Risk assessment
+- Automated trading signals
+
+### 📱 Multi-Platform Access
+![Multi-Platform](./docs/assets/platforms.png)
+- Web dashboard
+- Telegram bot interface
+- Discord integration
+- Mobile responsiveness
+
+### 💼 Professional Tools
+![Pro Tools](./docs/assets/pro-tools.png)
+- Advanced order types
+- Custom trading strategies
+- Portfolio rebalancing
+- Performance analytics
 
 ## 🏗 Architecture
 
-### System Components
+### System Architecture
+
 ```mermaid
 graph TD
-    A[User Interface] --> B[API Gateway]
-    B --> C[Trading Core]
-    B --> D[AI Engine]
-    C --> E[Binance API]
-    D --> F[LangChain]
-    D --> G[OpenRouter]
-    D --> H[Ollama LLM]
+    UI[Web & Bot UI]:::frontend --> GATE[API Gateway]:::backend
+    GATE --> TRADE[Trading Engine]:::core
+    GATE --> AI[AI Engine]:::ai
+    TRADE --> BINANCE[Binance API]:::external
+    AI --> LANG[LangChain]:::ai
+    AI --> ROUTER[OpenRouter]:::ai
+    AI --> OLLAMA[Ollama LLM]:::ai
+    TRADE --> DB[(Supabase DB)]:::database
+    AI --> DB
+    
+    classDef frontend fill:#42b883,stroke:#2c3e50,stroke-width:2px,color:#fff
+    classDef backend fill:#3498db,stroke:#2980b9,stroke-width:2px,color:#fff
+    classDef core fill:#e74c3c,stroke:#c0392b,stroke-width:2px,color:#fff
+    classDef ai fill:#9b59b6,stroke:#8e44ad,stroke-width:2px,color:#fff
+    classDef external fill:#f1c40f,stroke:#f39c12,stroke-width:2px,color:#fff
+    classDef database fill:#2ecc71,stroke:#27ae60,stroke-width:2px,color:#fff
 ```
+
+_Each color represents a different system layer: 🟢 Frontend, 🔵 Backend, 🔴 Core, 🟣 AI, 🟡 External, 🟢 Database_
 
 ### Directory Structure
 \`\`\`bash
@@ -119,19 +150,88 @@ binance-bot/
 
 ## ⚙️ Configuration
 
-1. **Required Environment Variables**
-   \`\`\`env
-   BINANCE_API_KEY=your_api_key
-   BINANCE_API_SECRET=your_api_secret
-   SUPABASE_URL=your_supabase_url
-   SUPABASE_KEY=your_supabase_key
-   STRIPE_SECRET_KEY=your_stripe_key
-   \`\`\`
+### 🔑 API Keys & Secrets
 
-2. **Optional Settings**
-   - Trading parameters in \`config/trading.yml\`
-   - AI model settings in \`config/ai.yml\`
-   - Notification preferences in \`config/notifications.yml\`
+```env
+# Binance API Configuration
+BINANCE_API_KEY=your_api_key
+BINANCE_API_SECRET=your_api_secret
+
+# Database Configuration
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your-anon-key
+SUPABASE_SERVICE_KEY=your-service-key
+
+# Payment Processing
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+
+# AI Services
+OPENROUTER_API_KEY=your_key
+OLLAMA_HOST=http://localhost:11434
+```
+
+### 📊 Trading Configuration
+```yaml
+# config/trading.yml
+trading:
+  risk_management:
+    max_position_size: 1000 USDT
+    stop_loss_percentage: 2.5
+    take_profit_percentage: 5
+    max_open_trades: 3
+    
+  strategy:
+    timeframe: 5m
+    indicators:
+      - type: RSI
+        period: 14
+        overbought: 70
+        oversold: 30
+      - type: MACD
+        fast_period: 12
+        slow_period: 26
+        signal_period: 9
+
+  notifications:
+    telegram_enabled: true
+    discord_enabled: true
+    email_enabled: false
+```
+
+### 🤖 AI Configuration
+```yaml
+# config/ai.yml
+ai_settings:
+  language_model:
+    provider: ollama
+    model: llama2
+    temperature: 0.7
+    max_tokens: 500
+    
+  risk_analysis:
+    confidence_threshold: 0.8
+    min_data_points: 1000
+    update_frequency: 5m
+```
+
+### 📱 Notification Settings
+```yaml
+# config/notifications.yml
+notifications:
+  telegram:
+    bot_token: your_bot_token
+    chat_id: your_chat_id
+    alert_levels: [INFO, WARNING, ERROR]
+    
+  discord:
+    webhook_url: your_webhook_url
+    role_id: your_role_id
+    channels:
+      trades: channel_id
+      alerts: channel_id
+      system: channel_id
+```
 
 ## 🚀 Usage
 
@@ -213,7 +313,53 @@ pytest tests/ai/
 4. Push to the branch
 5. Create a Pull Request
 
-## 📄 License
+## � Troubleshooting
+
+### Common Issues
+
+#### API Connection Issues
+```bash
+# Check API connectivity
+curl -v https://api.binance.com/api/v3/ping
+
+# Verify API keys
+python scripts/verify_api_keys.py
+```
+
+#### Database Connection
+```bash
+# Test Supabase connection
+supabase test db
+# or
+curl -v "${SUPABASE_URL}/rest/v1/" -H "apikey: ${SUPABASE_KEY}"
+```
+
+#### AI Model Issues
+```bash
+# Verify Ollama status
+curl http://localhost:11434/api/tags
+
+# Check model availability
+python scripts/check_models.py
+```
+
+### Error Solutions
+
+| Error | Solution |
+|-------|----------|
+| `BinanceAPIException: Invalid API key` | Regenerate API keys in Binance dashboard |
+| `Database connection failed` | Check VPN/firewall settings and Supabase status |
+| `MODEL_NOT_FOUND` | Run `ollama pull llama2` to download the model |
+| `WebSocket connection failed` | Check network connectivity and port availability |
+
+### Performance Optimization
+
+- Enable debug logging: `LOG_LEVEL=debug python main.py`
+- Monitor system resources: `docker stats ag-bot`
+- Check trading latency: `python scripts/latency_test.py`
+- Optimize database queries: `supabase db diagnose`
+
+## �📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
