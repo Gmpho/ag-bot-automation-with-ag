@@ -131,6 +131,16 @@ graph TD
     AI --> OLLAMA[Ollama LLM]:::ai
     TRADE --> DB[(Supabase DB)]:::database
     AI --> DB
+
+    %% Notion Integration
+    TRADE --> NOTION[Notion API]:::external
+    AI --> NOTION
+    DB --> NOTION
+    subgraph Notion Workspace
+        NOTION --> DOCS[Documentation]:::docs
+        NOTION --> ANALYTICS[Analytics]:::docs
+        NOTION --> REPORTS[Reports]:::docs
+    end
     
     classDef frontend fill:#42b883,stroke:#2c3e50,stroke-width:2px,color:#fff
     classDef backend fill:#3498db,stroke:#2980b9,stroke-width:2px,color:#fff
@@ -138,6 +148,7 @@ graph TD
     classDef ai fill:#9b59b6,stroke:#8e44ad,stroke-width:2px,color:#fff
     classDef external fill:#f1c40f,stroke:#f39c12,stroke-width:2px,color:#fff
     classDef database fill:#2ecc71,stroke:#27ae60,stroke-width:2px,color:#fff
+    classDef docs fill:#34495e,stroke:#2c3e50,stroke-width:2px,color:#fff
 ```
 
 _Each color represents a different system layer: 🟢 Frontend, 🔵 Backend, 🔴 Core, 🟣 AI, 🟡 External, 🟢 Database_
