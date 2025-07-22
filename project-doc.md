@@ -4,7 +4,57 @@
 
 [![GitHub Actions](https://github.com/Gmpho/ag-bot-automation-with-ag/actions/workflows/main.yml/badge.svg)](https://github.com/Gmpho/ag-bot-automation-with-ag/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.9+](htt### Performance Optimization
+
+- Enable debug logging: `LOG_LEVEL=debug python main.py`
+- Monitor system resources: `docker stats ag-bot`
+- Check trading latency: `python scripts/latency_test.py`
+- Optimize database queries: `supabase db diagnose`
+
+## 📚 Notion Integration
+
+The bot automatically syncs trading data, analytics, and documentation with Notion:
+
+### Auto-Synced Content
+- Trading strategies and performance metrics
+- System health and monitoring reports
+- User feedback and feature requests
+- Technical documentation and guides
+
+### Configuration
+```env
+# Notion API Configuration
+NOTION_API_KEY=secret_...
+NOTION_DATABASE_ID=your_database_id
+NOTION_WORKSPACE_ID=your_workspace_id
+```
+
+### Available Templates
+- Trading Journal Template
+- Performance Dashboard
+- System Documentation
+- User Guide Template
+
+### Usage Example
+```python
+from core.notion import NotionSync
+
+# Auto-sync trading results
+notion = NotionSync()
+notion.update_trading_journal(trade_results)
+
+# Update system documentation
+notion.sync_documentation(new_docs)
+```
+
+The Notion integration helps maintain:
+- 📊 Real-time trading logs
+- 📈 Performance analytics
+- 📝 Living documentation
+- 🔄 Automated reporting
+- 👥 Team collaboration
+
+## 📄 License.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0+-00a393.svg)](https://fastapi.tiangolo.com)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
@@ -119,6 +169,7 @@ _Each color represents a different system layer: 🟢 Frontend, 🔵 Backend, �
 | Database | Supabase (PostgreSQL) |
 | AI/ML | LangChain, OpenRouter, Ollama |
 | DevOps | Docker, GitHub Actions, Fly.io |
+| Documentation | Notion API, Auto-sync |
 | Monitoring | Custom Logging, Metrics |
 | Payment | Stripe |
 
@@ -169,9 +220,20 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 # AI Services
 OPENROUTER_API_KEY=your_key
 OLLAMA_HOST=http://localhost:11434
+
+# Notion Integration
+NOTION_API_KEY=secret_your_key_here
+NOTION_DATABASE_ID=your_database_id
+NOTION_WORKSPACE_ID=your_workspace_id
+
+# Notion Integration
+NOTION_API_KEY=secret_your_key_here
+NOTION_DATABASE_ID=your_database_id
+NOTION_WORKSPACE_ID=your_workspace_id
 ```
 
 ### 📊 Trading Configuration
+
 ```yaml
 # config/trading.yml
 trading:
@@ -200,6 +262,7 @@ trading:
 ```
 
 ### 🤖 AI Configuration
+
 ```yaml
 # config/ai.yml
 ai_settings:
@@ -216,6 +279,7 @@ ai_settings:
 ```
 
 ### 📱 Notification Settings
+
 ```yaml
 # config/notifications.yml
 notifications:
@@ -236,11 +300,13 @@ notifications:
 ## 🚀 Usage
 
 ### Web Dashboard
+
 1. Start the frontend: \`npm run dev\`
 2. Start the backend: \`python main.py\`
-3. Access at \`http://localhost:3000\`
+3. Access at \`[http://localhost:3000](http://localhost:3000)\`
 
 ### Telegram Bot
+
 - Start: \`python bots/telegram/main.py\`
 - Commands:
   - \`/start\` - Initialize bot
@@ -248,41 +314,46 @@ notifications:
   - \`/trade\` - View active trades
 
 ### Discord Bot
+
 - Start: \`python bots/discord/main.py\`
 - Available in your Discord server after setup
 
 ## 👩‍💻 Development
 
 ### Local Development
+
 1. Start local services:
-   \`\`\`bash
+
+   ```bash
    docker-compose up -d
-   \`\`\`
+   ```
 
 2. Run migrations:
-   \`\`\`bash
+
+   ```bash
    supabase db push
-   \`\`\`
+   ```
 
 3. Start development servers:
-   \`\`\`bash
-   # Frontend
-   npm run dev
 
-   # Backend
-   uvicorn main:app --reload
-   \`\`\`
+   ```bash
+   # Development servers
+   npm run dev        # Frontend
+   uvicorn main:app --reload  # Backend
+   ```
 
 ## 🧪 Testing
 
-\`\`\`bash
+Run the test suite:
+
+```bash
 # Run all tests
 pytest
 
-# Run specific test category
+# Run specific test categories
 pytest tests/trading/
 pytest tests/ai/
-\`\`\`
+```
 
 ## 📤 Deployment
 
@@ -318,6 +389,7 @@ pytest tests/ai/
 ### Common Issues
 
 #### API Connection Issues
+
 ```bash
 # Check API connectivity
 curl -v https://api.binance.com/api/v3/ping
@@ -327,6 +399,7 @@ python scripts/verify_api_keys.py
 ```
 
 #### Database Connection
+
 ```bash
 # Test Supabase connection
 supabase test db
@@ -335,6 +408,7 @@ curl -v "${SUPABASE_URL}/rest/v1/" -H "apikey: ${SUPABASE_KEY}"
 ```
 
 #### AI Model Issues
+
 ```bash
 # Verify Ollama status
 curl http://localhost:11434/api/tags
@@ -369,7 +443,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Create an issue for bug reports
 - Join our [Discord community](https://discord.gg/your-invite)
-- Email: support@yourproject.com
+- Email: [support@yourproject.com](mailto:support@yourproject.com)
 
 ---
 
