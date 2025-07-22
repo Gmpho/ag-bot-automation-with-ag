@@ -1,23 +1,32 @@
-# 🤖 Binance Trading Bot with AG
+# Binance Trading Bot with AG
+
+<div align="center">
 
 [![GitHub Actions](https://github.com/Gmpho/ag-bot-automation-with-ag/actions/workflows/main.yml/badge.svg)](https://github.com/Gmpho/ag-bot-automation-with-ag/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0+-00a393.svg)](https://fastapi.tiangolo.com)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-## 📑 Table of Contents
-1. [Project Overview](#-project-overview)
-2. [Features](#-key-features)
-3. [Architecture](#-architecture)
-4. [Tech Stack](#-tech-stack)
-5. [Installation](#-installation)
-6. [Configuration](#-configuration)
-7. [Usage](#-usage)
-8. [Development](#-development)
-9. [Testing](#-testing)
-10. [Deployment](#-deployment)
-11. [Security](#-security)
-12. [Contributing](#-contributing)
+**AI-Powered Trading Bot for Binance | Built with Modern Tech Stack**
 
-## 🎯 Project Overview
+[Demo](https://your-demo-link.com) · [Documentation](docs/) · [Report Bug](issues) · [Request Feature](issues)
+
+</div>
+
+---
+
+## 🎯 Overview
+
+> A modern, AI-powered trading bot that automates Binance spot trading with advanced risk management and multi-platform control.
+
+### Key Capabilities
+
+- 🤖 **Smart Trading**: AI-driven trade decisions using LangChain + Ollama
+- 📱 **Multi-Platform**: Access via Web, Telegram, or Discord
+- 🔒 **Enterprise Security**: Role-based access with Supabase
+- 💳 **Monetization Ready**: Built-in Stripe subscription system
+- 📊 **Real-time Analytics**: Live trading insights and reporting
 
 An advanced Binance trading bot that leverages artificial intelligence for automated trading strategies:
 
