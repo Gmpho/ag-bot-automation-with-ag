@@ -105,10 +105,10 @@ _Each color represents a different system layer: 🟢 Frontend, 🔵 Backend, �
 | └─ `trading/` | Python | Trading algorithms |
 | └─ `ai/` | LangChain | AI components & models |
 | └─ `security/` | Python | Auth & encryption |
-| `infrastructure/` | DevOps | Infrastructure code |
+| `deploy/` | DevOps | Deployment configurations |
 | └─ `docker/` | Dockerfile | Container configurations |
-| └─ `terraform/` | HCL | Infrastructure as Code |
-| `tools/` | Scripts | CLI tools & utilities |
+| └─ `fly/` | Fly.io | Cloud deployment settings |
+| `scripts/` | Python | Helper scripts & utilities |
 
 ## 🛠 Tech Stack
 
