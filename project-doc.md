@@ -93,22 +93,22 @@ graph TD
 
 _Each color represents a different system layer: 🟢 Frontend, 🔵 Backend, 🔴 Core, 🟣 AI, 🟡 External, 🟢 Database_
 
-### Directory Structure
-\`\`\`bash
-binance-bot/
-├── apps/
-│   ├── web/              # Next.js frontend
-│   ├── api/              # FastAPI backend
-│   └── bots/             # Telegram & Discord bots
-├── core/
-│   ├── trading/          # Trading logic
-│   ├── ai/               # AI components
-│   └── security/         # Auth & encryption
-├── infrastructure/
-│   ├── docker/           # Container configs
-│   └── terraform/        # IaC scripts
-└── tools/                # CLI & utilities
-\`\`\`
+### Project Structure
+
+| Directory | Content | Description |
+|-----------|---------|-------------|
+| `apps/` | Frontend & Backend | Application components |
+| └─ `web/` | Next.js | User interface and dashboard |
+| └─ `api/` | FastAPI | Backend API services |
+| └─ `bots/` | Python | Telegram & Discord bots |
+| `core/` | Trading Logic | Core business logic |
+| └─ `trading/` | Python | Trading algorithms |
+| └─ `ai/` | LangChain | AI components & models |
+| └─ `security/` | Python | Auth & encryption |
+| `infrastructure/` | DevOps | Infrastructure code |
+| └─ `docker/` | Dockerfile | Container configurations |
+| └─ `terraform/` | HCL | Infrastructure as Code |
+| `tools/` | Scripts | CLI tools & utilities |
 
 ## 🛠 Tech Stack
 
