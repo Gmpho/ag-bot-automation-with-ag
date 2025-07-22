@@ -4,57 +4,7 @@
 
 [![GitHub Actions](https://github.com/Gmpho/ag-bot-automation-with-ag/actions/workflows/main.yml/badge.svg)](https://github.com/Gmpho/ag-bot-automation-with-ag/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.9+](htt### Performance Optimization
-
-- Enable debug logging: `LOG_LEVEL=debug python main.py`
-- Monitor system resources: `docker stats ag-bot`
-- Check trading latency: `python scripts/latency_test.py`
-- Optimize database queries: `supabase db diagnose`
-
-## 📚 Notion Integration
-
-The bot automatically syncs trading data, analytics, and documentation with Notion:
-
-### Auto-Synced Content
-- Trading strategies and performance metrics
-- System health and monitoring reports
-- User feedback and feature requests
-- Technical documentation and guides
-
-### Configuration
-```env
-# Notion API Configuration
-NOTION_API_KEY=secret_...
-NOTION_DATABASE_ID=your_database_id
-NOTION_WORKSPACE_ID=your_workspace_id
-```
-
-### Available Templates
-- Trading Journal Template
-- Performance Dashboard
-- System Documentation
-- User Guide Template
-
-### Usage Example
-```python
-from core.notion import NotionSync
-
-# Auto-sync trading results
-notion = NotionSync()
-notion.update_trading_journal(trade_results)
-
-# Update system documentation
-notion.sync_documentation(new_docs)
-```
-
-The Notion integration helps maintain:
-- 📊 Real-time trading logs
-- 📈 Performance analytics
-- 📝 Living documentation
-- 🔄 Automated reporting
-- 👥 Team collaboration
-
-## 📄 License.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0+-00a393.svg)](https://fastapi.tiangolo.com)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
@@ -112,10 +62,59 @@ An advanced Binance trading bot that leverages artificial intelligence for autom
 
 ### 💼 Professional Tools
 ![Pro Tools](./docs/assets/pro-tools.png)
+
 - Advanced order types
 - Custom trading strategies
 - Portfolio rebalancing
 - Performance analytics
+
+## 🔌 Integrations
+
+### 📚 Notion Workspace
+
+Our Notion integration provides seamless documentation and analytics:
+
+- Real-time trade logging and performance tracking
+- System documentation and team collaboration
+- Automated reporting and analytics dashboards
+- Custom templates for various use cases
+
+#### Available Templates
+
+- Trading Journal Dashboard
+- Performance Analytics
+- System Documentation Hub
+- Team Collaboration Space
+
+#### Integration Setup
+
+```env
+# Notion API Configuration
+NOTION_API_KEY=secret_...
+NOTION_DATABASE_ID=your_database_id
+NOTION_WORKSPACE_ID=your_workspace_id
+```
+
+#### Usage Example
+
+```python
+from core.notion import NotionSync
+
+# Auto-sync trading results
+notion = NotionSync()
+notion.update_trading_journal(trade_results)
+
+# Update system documentation
+notion.sync_documentation(new_docs)
+```
+
+### 🔄 Other Integrations
+
+- **Discord**: Real-time alerts and trading commands
+- **Telegram**: Mobile trading and notifications
+- **Binance API**: Direct trading interface
+- **Supabase**: Secure data storage
+- **Stripe**: Payment processing
 
 ## 🏗 Architecture
 
